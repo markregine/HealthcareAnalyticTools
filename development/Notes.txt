@@ -1,0 +1,9 @@
+
+How do i change where python looks for packages to import
+
+How do I make so I can pip install
+
+
+https://stackoverflow.com/questions/8247605/configuring-so-that-pip-install-can-work-from-github
+
+https://stackoverflow.com/questions/67631/how-to-import-a-module-given-the-full-path
