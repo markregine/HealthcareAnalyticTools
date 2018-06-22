@@ -4,8 +4,7 @@ import numpy as np
 ## -------------------------------------------------------------------------------------------------------------
 ## -------------------------------------------------------------------------------------------------------------
 
-def test():
-    print('mark')
+path_to_data = r'C:\Users\Mark\Desktop\BXA\github\HealthcareAnalyticTools\data\\'
 
 ## -------------------------------------------------------------------------------------------------------------
 ## -------------------------------------------------------------------------------------------------------------
@@ -15,7 +14,7 @@ def test():
 ### ---- Drug Lookups ----
 
 #### ---- JCodes ----
-def Read_JCodeRxLookUp(path=r"data\JCode List.xlsx", Return='NoDups'):
+def Read_JCodeRxLookUp(path=path_to_data + "JCode List.xlsx", Return='NoDups'):
     """ Returns The JCodeRxLookUp table  
     -------------------------------------  
     Return: Some JCodes are duplicated, do you want 'Dups' or 'NoDups'? Default is 'NoDups'.  
@@ -68,7 +67,7 @@ def Read_JCodeRxLookUp(path=r"data\JCode List.xlsx", Return='NoDups'):
 
 
 #### ---- First Data Base ----
-def Read_FDB(path=r"data\FDB_Base.xlsx"):
+def Read_FDB(path=path_to_data + "FDB_Base.xlsx"):
 
     dfFDB = pd.read_excel(path, sheet_name='FirstDatabankMedicationBASE')
     print("NumRecs: \n", dfFDB.shape)
@@ -117,7 +116,7 @@ def Read_ICD_9_Lookup():
 	Returns dfICD9Lookup  
 	"""
 	#Prep ICD 9 Lookup ---
-	dfICD9Lookup = pd.read_pickle(r"data\dfICD9LookUp.pkl")
+	dfICD9Lookup = pd.read_pickle(path_to_data + "dfICD9LookUp.pkl")
 	dfICD9Lookup = dfICD9Lookup.apply(lambda c: c.str.strip()).copy()
 	print("Is the ICD 9 Code in dfICD9Lookup unique:\n", dfICD9Lookup.set_index('ICD9').index.is_unique )
 	return dfICD9Lookup
@@ -128,7 +127,7 @@ def Read_ICD_10_Lookup():
 	Returns dfICD10Lookup  
 	"""
 	#Prep ICD 10 Lookup ---
-	dfICD10Lookup = pd.read_pickle(r"data\dfICD10LookUp.pkl")
+	dfICD10Lookup = pd.read_pickle(path_to_data + "dfICD10LookUp.pkl")
 	dfICD10Lookup = dfICD10Lookup.apply(lambda c: c.str.strip()).copy()
 	print("Is the ICD 10 Code in dfICD10Lookup unique:\n", dfICD10Lookup.set_index('ICD10').index.is_unique )
 	return dfICD10Lookup
@@ -139,7 +138,7 @@ def Read_ICD9_to_ICD10():
 	Returns dfICD9_to_ICD10  
 	"""
 	#Prep ICD9 to ICD10 ---
-	dfICD9_to_ICD10 = pd.read_pickle(r"data\dfICD9_to_ICD10.pkl")
+	dfICD9_to_ICD10 = pd.read_pickle(path_to_data + "dfICD9_to_ICD10.pkl")
 	    #Dtype and strip
 	dfICD9_to_ICD10 = dfICD9_to_ICD10.apply(lambda c: c.str.strip()).copy()
 	    #Add Extra zeros to ICD 9 codes
@@ -159,7 +158,7 @@ def Read_ICD10_to_ICD9():
 	Returns dfICD10_to_ICD9  
 	"""
 	#Prep ICD10 to ICD9 ----
-	dfICD10_to_ICD9 = pd.read_pickle(r"data\dfICD10_to_ICD9.pkl")
+	dfICD10_to_ICD9 = pd.read_pickle(path_to_data + "dfICD10_to_ICD9.pkl")
 
 	    #Dtype and strip
 	dfICD10_to_ICD9 = dfICD10_to_ICD9.apply(lambda c: c.str.strip()).copy()
