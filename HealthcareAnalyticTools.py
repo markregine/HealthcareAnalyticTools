@@ -250,22 +250,4 @@ def Extract_Dx_Regardless_of_ICD_Version(df, list_of_icds_to_search_for, Version
             index_values = df9s.loc[(df9s.value.isin(ICD9s_to_find_in_medical)) & ((df9s['variable'] == 'Dx1') | (df9s['variable'] == 'Dx2')), 'index_orig'] 
         r2 = df.loc[index_values, :]
         r = pd.concat([r1, r2])
-        return r 
-
-
-class raw_data_df(pd.DataFrame):
-    """
-	Pass a "raw" dataset for first line cleaning/preperation.
-    """
-
-    def __init__(self, df, keep_subset_of_columns):
-        super().__init__(df)  # initialize subclass from DataFrame instance
-        
-        self.raw_columns_not_kept = set(self.columns).difference(set(keep_subset_of_columns))
-        
-    def strip_white_space_from_dtype_object_columns(self):
-        column_names = self.select_dtypes([object])\
-                        .columns
-        for i in column_names:
-            self[i] = self[i].str.strip()
-        return self
+        return r
