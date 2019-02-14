@@ -1,11 +1,11 @@
 """
 _____________________________________________________________________________________________
 |                                                                                           |
-|       HealthcareAnalyticTools package: makes healthcare data analysis easy                         |
+|       HealthcareAnalyticTools package: makes healthcare data analysis easy                |
 |                                                                                           |
 | This package is to provide easy to use tools to aid in healthcare data cleaning and       |
 |  analyses. A full applied guide to the entire package may soon be available at:           |
-|       https://github.com/markregine/HealthcareAnalyticTools                                        |
+|       https://github.com/markregine/HealthcareAnalyticTools                               |
 |                                                                                           |
 | Current contents include:                                                                 |
 |       - Raw data cleaning tools                                                           |
@@ -25,5 +25,7 @@ module2
 See http://some_website for a full guide to all the package features
 """
 from .base import (print_hello, get_df)
+import HealthcareAnalyticTools.lookups
+
 
 from .version import __version__
